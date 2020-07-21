@@ -12,6 +12,7 @@ call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py'}
 Plug 'preservim/nerdtree'
+Plug 'Glench/Vim-Jinja2-Syntax'
 call plug#end()
 
 if need_to_install_plugins == 1
