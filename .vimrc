@@ -9,6 +9,7 @@ endif
 
 " Plugins
 call plug#begin()
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -19,3 +20,8 @@ if need_to_install_plugins == 1
 endif
 
 
+" Solarized Theme
+" https://github.com/altercation/vim-colors-solarized
+syntax enable
+set background=dark
+colorscheme solarized
