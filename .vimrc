@@ -10,6 +10,7 @@ endif
 " Plugins
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py'}
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -29,3 +30,10 @@ colorscheme solarized
 
 " Allow saving files as sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" YCM autocompletion
+" Auto close preview window
+let g:ycm_autoclose_preview_window_after_completion=1
+" Fix for interpreter
+let g:ycm_server_python_interpreter = '/usr/bin/python3.8'
+
