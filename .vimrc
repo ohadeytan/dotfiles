@@ -11,6 +11,7 @@ endif
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py'}
+Plug 'preservim/nerdtree'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -36,4 +37,10 @@ cmap w!! w !sudo tee > /dev/null %
 let g:ycm_autoclose_preview_window_after_completion=1
 " Fix for interpreter
 let g:ycm_server_python_interpreter = '/usr/bin/python3.8'
+
+" NERDTree
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let NERDTreeMinimalUI = 1
+let g:nerdtree_open = 0
+map <C-n> :NERDTreeToggle<CR>
 
