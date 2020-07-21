@@ -19,9 +19,10 @@ if need_to_install_plugins == 1
     q
 endif
 
+" Display Line Numbers
+set number
 
 " Solarized Theme
-" https://github.com/altercation/vim-colors-solarized
 syntax enable
 set background=dark
 colorscheme solarized
