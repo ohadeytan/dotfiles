@@ -44,3 +44,6 @@ let NERDTreeMinimalUI = 1
 let g:nerdtree_open = 0
 map <C-n> :NERDTreeToggle<CR>
 
+" Indentation
+set shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType java setlocal shiftwidth=2 softtabstop=2 
