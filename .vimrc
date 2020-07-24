@@ -13,6 +13,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py'}
 Plug 'preservim/nerdtree'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -55,3 +56,10 @@ let mapleader = " "
 nmap <leader><Left> :bp!<CR>
 nmap <leader><Right> :bn!<CR>
 nmap <leader>d :bd<CR>
+
+" fzf
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>s :Lines<CR>
+nnoremap <silent> <leader>hf :History<CR>
+nnoremap <silent> <leader>hv :History:<CR>
