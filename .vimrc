@@ -49,6 +49,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Indentation
 set shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType java setlocal shiftwidth=2 softtabstop=2 
+autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 
 
 " Key maps
 let mapleader = " "
