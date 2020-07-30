@@ -1,4 +1,4 @@
-" Install vim-plug 
+" Install vim-plug
 let need_to_install_plugins = 0
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -14,6 +14,7 @@ Plug 'ycm-core/YouCompleteMe', { 'do': './install.py'}
 Plug 'preservim/nerdtree'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -64,3 +65,10 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>s :Lines<CR>
 nnoremap <silent> <leader>hf :History<CR>
 nnoremap <silent> <leader>hv :History:<CR>
+
+" lightline
+set laststatus=2
+set noshowmode
+let g:lightline = {
+    \ 'colorscheme': 'solarized',
+    \ }
