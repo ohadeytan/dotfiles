@@ -10,7 +10,7 @@ endif
 " Plugins
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py'}
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --java-completer'}
 Plug 'preservim/nerdtree'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'junegunn/fzf.vim'
@@ -60,6 +60,12 @@ let mapleader = " "
 nmap <leader><Left> :bp!<CR>
 nmap <leader><Right> :bn!<CR>
 nmap <leader>d :bd<CR>
+" For terminal usage inside vim 
+" <Esc> (or double <Esc> for quicker) switch to terminal-normal, while arrows still working
+tnoremap <Esc> <C-W>N  
+tnoremap <Esc><Esc> <C-W>N  
+set timeout timeoutlen=1000   
+set ttimeout ttimeoutlen=100 
 
 " fzf
 nnoremap <silent> <leader>f :Files<CR>
@@ -74,3 +80,5 @@ set noshowmode
 let g:lightline = {
     \ 'colorscheme': 'solarized',
     \ }
+
+
