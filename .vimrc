@@ -15,6 +15,7 @@ Plug 'preservim/nerdtree'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'sirtaj/vim-openscad'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -39,7 +40,7 @@ cmap w!! w !sudo tee > /dev/null %
 " Auto close preview window
 let g:ycm_autoclose_preview_window_after_completion=1
 " Fix for interpreter
-let g:ycm_server_python_interpreter = '/usr/bin/python3.8'
+let g:ycm_server_python_interpreter = '/usr/bin/python3.9'
 
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
@@ -81,4 +82,7 @@ let g:lightline = {
     \ 'colorscheme': 'solarized',
     \ }
 
-
+" session management
+let g:sessions_dir = '~/.vim/sessions'
+exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
