@@ -26,7 +26,7 @@ if need_to_install_plugins == 1
 endif
 
 " Display Line Numbers
-set number
+set number relativenumber
 
 " Solarized Theme
 syntax enable
