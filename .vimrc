@@ -45,7 +45,6 @@ let g:ycm_server_python_interpreter = '/usr/bin/python3.9'
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeMinimalUI = 1
-let g:nerdtree_open = 0
 map <C-n> :NERDTreeToggle<CR>
 
 " Indentation
