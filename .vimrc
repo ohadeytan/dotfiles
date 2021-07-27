@@ -32,6 +32,8 @@ set number relativenumber
 syntax enable
 set background=dark
 colorscheme solarized
+" Transparent background
+hi Normal guibg=NONE ctermbg=NONE
 
 " Allow saving files as sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
