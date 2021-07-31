@@ -150,7 +150,7 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.KeyboardLayout(configured_keyboards=['us', 'il'], display_map={'us':'En', 'il':'He'}),
+                widget.KeyboardLayout(configured_keyboards=['us', 'il lyx'], display_map={'us':'En', 'il lyx':'He'}),
                 widget.Volume(mouse_callbacks={'Button3':lambda: qtile.cmd_spawn('pavucontrol')}),
                 widget.Systray(),
                 widget.GenPollText(func=get_heb_date),
