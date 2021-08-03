@@ -9,13 +9,14 @@ endif
 
 " Plugins
 call plug#begin()
-Plug 'altercation/vim-colors-solarized'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --java-completer'}
-Plug 'preservim/nerdtree'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'sirtaj/vim-openscad'
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --java-completer'}
+    Plug 'preservim/nerdtree'
+    Plug 'Glench/Vim-Jinja2-Syntax'
+    Plug 'junegunn/fzf.vim'
+    Plug 'itchyny/lightline.vim'
+    Plug 'sirtaj/vim-openscad'
+    Plug 'cespare/vim-toml'
 call plug#end()
 
 if need_to_install_plugins == 1
