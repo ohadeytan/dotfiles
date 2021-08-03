@@ -8,3 +8,5 @@ Currently tracking:
 - *rofi* launcher
 - *xmodmap* keys remapping
 - *dunst* notifications manager 
+- *zsh* shell
+- *starship* prompt
