@@ -1,6 +1,12 @@
 ### Starship prompt configuration
 
-# Symbol
+format = """
+[┌](bold green) [💻 $username](dimmed green)[@](green)[$hostname](dimmed green) $time
+[│](bold green) $directory\
+$git_status$git_branch\
+$golang$python$rust
+[└ $character](bold green)"""
+
 [character]                            
 success_symbol = "[👉](bold green)"
 error_symbol = "[👈](bold red)"
@@ -8,3 +14,20 @@ vicmd_symbol = "[👆](bold green)"
 
 [directory]
 home_symbol = "🏠"
+
+[username]
+format = "$user"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "$hostname"
+disabled = false
+
+[time]
+disabled = false
+format = '🕙[ $time](yellow) '
+time_format = "%T"
+utc_time_offset = "+3"
+time_range = "-"
