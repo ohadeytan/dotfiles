@@ -14,7 +14,6 @@ bindkey -v
 
 # Starship prompt
 eval "$(starship init zsh)"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\'fg=60\'
 
 # Aliases
 source ~/.config/aliases.sh
@@ -22,6 +21,11 @@ source ~/.config/aliases.sh
 # Private stuff
 source ~/.config/private.sh
 
-# Plugins
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+### Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Completion
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\'fg=60\'
+bindkey "^F" forward-word
+bindkey "^B" backward-word
