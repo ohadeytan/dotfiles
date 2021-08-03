@@ -19,6 +19,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\'fg=60\'
 # Aliases
 source ~/.config/aliases.sh
 
+# Private stuff
+source ~/.config/private.sh
+
 # Plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
