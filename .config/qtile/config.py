@@ -46,7 +46,7 @@ def switch_screens(qtile):
 
 def switch_keyboard_layout(qtile):
     qtile.widgets_map["keyboardlayout"].next_keyboard() 
-    subprocess.call('xmodmap ~/.Xmodmap', shell=True)
+    subprocess.call('sleep 0.5; xmodmap ~/.Xmodmap', shell=True)
     
 keys = [
     # Switch between windows
@@ -134,8 +134,12 @@ import hdate
 def get_heb_date():
     return hdate.HDate().hebrew_date
 
+import requests
+heaterUrl = 'http://192.168.1.2:8888/rest/items/heater'
+
 screens = [
     Screen(
+
         wallpaper='~/.config/qtile/wallpaper.png',
         wallpaper_mode='fill',
         top=bar.Bar(
@@ -153,9 +157,11 @@ screens = [
                 widget.KeyboardLayout(configured_keyboards=['us', 'il lyx'], display_map={'us':'En', 'il lyx':'He'}),
                 widget.Volume(mouse_callbacks={'Button3':lambda: qtile.cmd_spawn('pavucontrol')}),
                 widget.Systray(),
-                widget.GenPollText(func=get_heb_date),
+                widget.GenPollText(func=get_heb_date, update_interval=600),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
                 widget.QuickExit(),
+                widget.GenPollUrl(url=heaterUrl, json=True, parse=lambda r: '🔥' if r['state'] =='ON' else '💧', update_interval=5, 
+                    mouse_callbacks={'Button1' : lambda: requests.post(heaterUrl, headers={'Content-Type' : 'text/plain', 'Accept' : 'application/json'}, data='toggle')}),
                 widget.LaunchBar(progs=[('🔒', 'systemctl suspend', 'suspend system')]),
             ],
             30,
