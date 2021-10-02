@@ -38,6 +38,7 @@ from libqtile import hook
 # mod4 is Super, mod1 is Alt
 mod = "mod1"
 terminal = 'alacritty'
+file_explorer = 'nautilus'
 
 def switch_screens(qtile):     
     i = qtile.screens.index(qtile.current_screen)     
@@ -84,6 +85,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "f", lazy.spawn(file_explorer), desc="Launch file explorer"),
 
     # Toggle between different layouts as defined below
     Key([mod, "control"], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
