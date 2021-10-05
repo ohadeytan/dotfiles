@@ -108,16 +108,18 @@ groups_conf = {
                 'CHR' : { 'spawn' : 'chromium', 'exclusive' : False, 'label' : '🌐' }, 
                 'TEL' : { 'spawn' : 'telegram-desktop', 'exclusive' : False, 'label' : '💬' }, 
                 'OBS' : { 'spawn' : 'obsidian', 'exclusive' : False, 'label' : '🪨 ' },
-                '6' : {},
-                '7' : {},
+                'PHD' : { 'spawn' : 'texstudio', 'exclusive' : False, 'label' : '🎓' },
+                'MLC' : { 'spawn' : 'alacritty', 'exclusive' : False, 'label' : '🗄' },
                 '8' : {},
+                '9' : {},
+                '0' : {},
               }
 
 groups = [Group(name, **kwargs) for name, kwargs in groups_conf.items()]
 
 for i, (name, kwargs) in enumerate(groups_conf.items(), 1):
-    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
-    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
+    keys.append(Key([mod], str(i % 10), lazy.group[name].toscreen()))        # Switch to another group
+    keys.append(Key([mod, "shift"], str(i % 10), lazy.window.togroup(name))) # Send current window to another group
 
 layouts = [
     layout.Columns(border_focus_stack='#d75f5f', margin=5),
@@ -132,9 +134,10 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+import datetime
 import hdate
 def get_heb_date():
-    return hdate.HDate().hebrew_date
+    return str(hdate.HDate(datetime.datetime.now()).hebrew_date)
 
 import requests
 heaterUrl = 'http://192.168.1.2:8888/rest/items/heater'
