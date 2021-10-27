@@ -100,6 +100,10 @@ keys = [
     Key([mod], "space", lazy.function(switch_keyboard_layout), desc="Next keyboard layout."),
     Key([mod], "s", lazy.function(switch_screens), desc="Switch between screens"),
     Key([mod], "Tab", lazy.spawn('rofi -show window'), desc="Toggle between windows with rofi"),
+
+    # dunst shortcuts
+    Key(["shift"], "space", lazy.spawn('dunstctl close'), desc="Close notification"), 
+    Key(["control", "shift"], "space", lazy.spawn('dunstctl history-pop'), desc="Redisplay notification"), 
 ]
 
 groups_conf = { 
