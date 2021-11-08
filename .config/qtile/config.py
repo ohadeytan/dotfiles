@@ -106,6 +106,23 @@ keys = [
     Key(["control", "shift"], "space", lazy.spawn('dunstctl history-pop'), desc="Redisplay notification"), 
 ]
 
+translation = { 
+        'e' : 'hebrew_kuf',
+        'f' : 'hebrew_kaph',
+        'n' : 'hebrew_nun', 
+        'r' : 'hebrew_resh',
+        's' : 'hebrew_dalet',
+        'q' : 'slash',
+        'w' : 'apostrophe', 
+    }
+
+import copy
+def translate_key(key):
+    key = copy.copy(key)
+    key.key = translation[key.key]
+    return key
+keys += [translate_key(key) for key in keys if key.key in translation]
+
 groups_conf = { 
                 'FF' :  { 'spawn' : 'firefox', 'exclusive' : False, 'label' : '🦊' }, 
                 'TER' : { 'spawn' : 'alacritty', 'exclusive' : False, 'label' : '💻' }, 
