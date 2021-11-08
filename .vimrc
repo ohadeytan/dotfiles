@@ -88,3 +88,6 @@ let g:lightline = {
 let g:sessions_dir = '~/.vim/sessions'
 exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+" sync with system clipboard (use the clipboard register as the default)
+set clipboard=unnamedplus
