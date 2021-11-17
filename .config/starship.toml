@@ -29,5 +29,5 @@ disabled = false
 disabled = false
 format = '🕙[ $time](yellow) '
 time_format = "%T"
-utc_time_offset = "+3"
+utc_time_offset = "local"
 time_range = "-"
