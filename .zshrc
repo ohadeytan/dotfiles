@@ -5,6 +5,7 @@ SAVEHIST=1000000000
 
 # Enable colors
 autoload -U colors && colors
+autoload -U compinit && compinit
 
 # bat as manpager 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -29,3 +30,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\'fg=60\'
 bindkey "^F" forward-word
 bindkey "^B" backward-word
+
+# fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/zsh/plugins/fzf-tab-bin-git/fzf-tab.plugin.zsh
