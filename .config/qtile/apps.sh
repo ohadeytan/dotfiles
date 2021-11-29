@@ -2,5 +2,5 @@
 flameshot &
 nm-applet &
 blueman-applet &
-#dropbox &
+dropbox &
 picom &
