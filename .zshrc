@@ -2,6 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000000000
 SAVEHIST=1000000000
+setopt share_history
 
 # Enable colors
 autoload -U colors && colors
