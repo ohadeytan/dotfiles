@@ -43,7 +43,7 @@ cmap w!! w !sudo tee > /dev/null %
 " Auto close preview window
 let g:ycm_autoclose_preview_window_after_completion=1
 " Fix for interpreter
-let g:ycm_server_python_interpreter = '/usr/bin/python3.9'
+let g:ycm_server_python_interpreter = '/usr/bin/python'
 
 " NERDTree
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
