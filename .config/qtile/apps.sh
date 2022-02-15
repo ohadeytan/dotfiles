@@ -2,5 +2,6 @@
 flameshot &
 nm-applet &
 blueman-applet &
-dropbox &
 picom &
+redshift-gtk &
+qbittorrent &
