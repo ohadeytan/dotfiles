@@ -1,6 +1,8 @@
 ! Printscreen -> Escape
 keycode 107 = Escape NoSymbol Escape
-! PgDown, PgUp -> Backward, Forward
-keycode 112 = XF86Back Prior Prior
-keycode 117 = XF86Forward Next Next
-
+! PgDown, PgUp -> End, Home
+keycode 117 = End NoSymbol End
+keycode 112 = Home NoSymbol Home
+! Home, End -> Backward, Forward
+keycode 110 = XF86Back Prior Prior
+keycode 115 = XF86Forward Next Next
