@@ -10,7 +10,7 @@ endif
 " Plugins
 call plug#begin()
     Plug 'altercation/vim-colors-solarized'
-    Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --java-completer'}
+    Plug 'tabnine/YouCompleteMe', { 'do': './install.py --all'}
     Plug 'preservim/nerdtree'
     Plug 'Glench/Vim-Jinja2-Syntax'
     Plug 'junegunn/fzf.vim'
