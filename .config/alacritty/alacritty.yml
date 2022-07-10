@@ -104,16 +104,16 @@
 # Font configuration
 font:
   normal:
-    family: FiraCode Nerd Font Mono
+    family: monospace
     style: Regular
   bold:
-    family: FiraCode Nerd Font Mono
+    family: monospace
     style: Bold
   italic:
-    family: FiraCode Nerd Font Mono
+    family: monospace
     style: Italic
   # Point size
-  size: 12.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -136,7 +136,7 @@ font:
   #use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
+# draw_bold_text_with_bright_colors: true
 
 # Colors (Tomorrow Night)
 #colors:
@@ -320,7 +320,8 @@ font:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-window.opacity: 0.95
+window:
+  opacity: 0.95
 
 #selection:
   # This string contains all characters that are used as separators for

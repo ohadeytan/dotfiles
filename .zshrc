@@ -24,15 +24,15 @@ source ~/.config/aliases.sh
 source ~/.config/private.sh
 
 ### Plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Completion
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\'fg=60\'
 bindkey "^F" forward-word
 bindkey "^B" backward-word
 
 # fzf
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/shell/key-bindings.zsh
+source /usr/share/fzf/shell/completion.zsh
 source /usr/share/zsh/plugins/fzf-tab-bin-git/fzf-tab.plugin.zsh

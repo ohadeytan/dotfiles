@@ -34,7 +34,6 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile import hook
 
-
 # mod4 is Super, mod1 is Alt
 mod = "mod1"
 terminal = 'alacritty'
