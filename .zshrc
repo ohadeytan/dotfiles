@@ -36,3 +36,6 @@ bindkey "^B" backward-word
 source /usr/share/fzf/shell/key-bindings.zsh
 source /usr/share/fzf/shell/completion.zsh
 source /usr/share/zsh/plugins/fzf-tab-bin-git/fzf-tab.plugin.zsh
+
+# Use vim
+export EDITOR=/usr/bin/vim
