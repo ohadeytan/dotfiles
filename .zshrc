@@ -28,7 +28,7 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Completion
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\'fg=60\'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a8a8a8"
 bindkey "^F" forward-word
 bindkey "^B" backward-word
 
