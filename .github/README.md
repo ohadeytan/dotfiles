@@ -10,3 +10,5 @@ Currently tracking:
 - *dunst* notifications manager 
 - *zsh* shell
 - *starship* prompt
+- *picom* compositor
+- *redshift* color temperature
