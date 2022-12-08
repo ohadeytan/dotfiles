@@ -48,6 +48,10 @@ def switch_keyboard_layout(qtile):
     qtile.widgets_map["keyboardlayout"].next_keyboard() 
     subprocess.call('sleep 0.5; xmodmap ~/.Xmodmap', shell=True)
     
+@lazy.function
+def toggle_layouts(qtile):
+    qtile.cmd_next_layout()
+
 keys = [
     # Switch between windows
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -103,6 +107,9 @@ keys = [
     # dunst shortcuts
     Key(["shift"], "space", lazy.spawn('dunstctl close'), desc="Close notification"), 
     Key(["control", "shift"], "space", lazy.spawn('dunstctl history-pop'), desc="Redisplay notification"), 
+
+    # Toggle between layouts
+    Key([mod], "t", toggle_layouts, desc='Toggle layouts'),
 ]
 
 translation = { 
