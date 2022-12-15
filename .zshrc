@@ -31,6 +31,7 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a8a8a8"
 bindkey "^F" forward-word
 bindkey "^B" backward-word
+eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
 # fzf
 source /usr/share/fzf/shell/key-bindings.zsh
