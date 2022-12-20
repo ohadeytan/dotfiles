@@ -52,6 +52,20 @@ def switch_keyboard_layout(qtile):
 def toggle_layouts(qtile):
     qtile.cmd_next_layout()
 
+def where_am_i():
+    try:
+        ssid = subprocess.check_output(['iw', 'dev', 'wlp9s0', 'link']).decode('utf-8')
+        if 'Eytan' in ssid:
+            return 'Home'
+        if 'Ohad' in ssid:
+            return 'Migdal'
+        else:
+            return None
+    except e:
+        return None
+
+my_place = where_am_i()
+
 keys = [
     # Switch between windows
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -120,6 +134,7 @@ translation = {
         's' : 'hebrew_dalet',
         'q' : 'slash',
         'w' : 'apostrophe', 
+        't' : 'hebrew_aleph',
     }
 
 import copy
@@ -167,7 +182,23 @@ def get_heb_date():
     return str(hdate.HDate(datetime.datetime.now()).hebrew_date)
 
 import requests
-heaterUrl = 'http://192.168.1.2:8888/rest/items/heater'
+heaterHomeUrl = 'http://192.168.1.2:8888/rest/items/heater'
+heaterMigdalUrl = 'http://192.168.1.8/cm'
+def get_heater_state():
+    if my_place == 'Migdal':
+        r = requests.get(heaterMigdalUrl, params={'cmnd' : 'power'})
+        return '🔥' if r.json()['POWER'] == 'ON' else '💧'
+    elif my_place == 'Home':
+        r = requests.get(heaterHomeUrl)
+        return '🔥' if r.json()['state'] == 'ON' else '💧'
+    else:
+        return ''
+
+def toggle_heater():
+    if my_place == 'Migdal':
+        requests.post(heaterMigdalUrl, params={'cmnd' : 'power toggle'})
+    elif my_place == 'Home':
+        requests.post(heaterHomeUrl, headers={'Content-Type' : 'text/plain', 'Accept' : 'application/json'}, data='toggle')
 
 screens = [
     Screen(
@@ -192,8 +223,8 @@ screens = [
                 widget.GenPollText(func=get_heb_date, update_interval=600),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
                 widget.QuickExit(),
-                widget.GenPollUrl(url=heaterUrl, json=True, parse=lambda r: '🔥' if r['state'] =='ON' else '💧', update_interval=5, 
-                    mouse_callbacks={'Button1' : lambda: requests.post(heaterUrl, headers={'Content-Type' : 'text/plain', 'Accept' : 'application/json'}, data='toggle')}),
+                widget.GenPollText(func=get_heater_state, update_interval=5,
+                                   mouse_callbacks={'Button1' : toggle_heater}),
                 widget.LaunchBar(progs=[('🔒', 'systemctl suspend', 'suspend system')]),
             ],
             30,
@@ -229,7 +260,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
-])
+], border_width=0)
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
