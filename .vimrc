@@ -63,6 +63,8 @@ let mapleader = " "
 nmap <leader><Left> :bp!<CR>
 nmap <leader><Right> :bn!<CR>
 nmap <leader>d :bd<CR>
+" pretty json
+nnoremap <leader>jq :%!jq -S<CR>
 " For terminal usage inside vim 
 " <Esc> (or double <Esc> for quicker) switch to terminal-normal, while arrows still working
 tnoremap <Esc> <C-W>N  
