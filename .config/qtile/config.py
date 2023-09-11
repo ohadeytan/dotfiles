@@ -200,32 +200,35 @@ def toggle_heater():
     elif my_place == 'Home':
         requests.post(heaterHomeUrl, headers={'Content-Type' : 'text/plain', 'Accept' : 'application/json'}, data='toggle')
 
+from qtile_extras import widget
+from qtile_extras.widget.decorations import PowerLineDecoration
+from itertools import cycle
+
+colors = cycle(["#002b36", "#073642"])
+
+powerline = {
+    "decorations": [
+        PowerLineDecoration(path='forward_slash')
+    ]
+}
+
 screens = [
     Screen(
-
         wallpaper='~/.config/qtile/wallpaper.png',
         wallpaper_mode='fill',
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(disable_drag=True),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.KeyboardLayout(configured_keyboards=['us', 'il lyx'], display_map={'us':'En', 'il lyx':'He'}),
-                widget.Volume(mouse_callbacks={'Button3':lambda: qtile.cmd_spawn('pavucontrol')}),
-                widget.Systray(),
-                widget.GenPollText(func=get_heb_date, update_interval=600),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(),
+                widget.GroupBox(background=next(colors), disable_drag=True, **powerline),
+                widget.WindowName(background=next(colors), **powerline),
+                widget.CurrentLayout(background=next(colors), **powerline),
+                widget.KeyboardLayout(configured_keyboards=['us', 'il lyx'], display_map={'us':'En', 'il lyx':'He'}, background=next(colors), **powerline),
+                widget.Volume(background=next(colors), **powerline, mouse_callbacks={'Button3':lambda: qtile.cmd_spawn('pavucontrol')}),
+                widget.Systray(background=next(colors), **powerline),
+                widget.GenPollText(background=next(colors), **powerline, func=get_heb_date, update_interval=600),
+                widget.Clock(format='%Y-%m-%d %a %I:%M %p', background=next(colors), **powerline),
                 widget.GenPollText(func=get_heater_state, update_interval=5,
-                                   mouse_callbacks={'Button1' : toggle_heater}),
-                widget.LaunchBar(progs=[('🔒', 'systemctl suspend', 'suspend system')]),
+                                   mouse_callbacks={'Button1' : toggle_heater}, background=next(colors), **powerline),
+                widget.LaunchBar(progs=[('🔒 ', 'systemctl suspend', 'suspend system')], background=next(colors), **powerline),
             ],
             30,
         ),
