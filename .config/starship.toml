@@ -4,7 +4,7 @@ format = """
 [┌](bold green) [💻 $username](dimmed green)[@](green)[$hostname](dimmed green) $time
 [│](bold green) $directory\
 $git_status$git_branch\
-$golang$python$rust
+$golang$python$rust$conda
 [└ $character](bold green)"""
 
 [character]                            
@@ -31,3 +31,6 @@ format = '🕙[ $time](yellow) '
 time_format = "%T"
 utc_time_offset = "local"
 time_range = "-"
+
+[conda]
+format = '[$symbol$environment](dimmed green) '
