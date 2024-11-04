@@ -34,3 +34,6 @@ time_range = "-"
 
 [conda]
 format = '[$symbol$environment](dimmed green) '
+
+[python]
+format = 'via [${symbol}${pyenv_prefix}(${version} )]($style)[($virtualenv)](dimmed green)'
